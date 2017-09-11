@@ -1,0 +1,118 @@
+body {
+background: url(http://res.cloudinary.com/jamesriall/image/upload/c_scale,w_1920/v1468354954/Simon_Background_wq9a2a.jpg) no-repeat center center fixed;
+}
+
+#red {
+  background: red;
+  width: 300px;
+  height: 300px;
+border-width: 20px 20px 10px 10px;
+  border-style: solid;
+  border-color: #222222;
+  border-radius: 0px 300px 0px 0px;
+
+}
+#yellow {
+  background: #ee0;
+    width: 300px;
+  height: 300px;
+  border-radius: 0px 0px 0px 300px;
+border-width: 10px 10px 20px 20px;
+  border-style: solid;
+  border-color: #222222;
+}
+#green {
+  background: green;
+    width: 300px;
+  height: 300px;
+  border-radius: 300px 0px 0px 0px;
+  border-width: 20px 10px 10px 20px;
+  border-style: solid;
+  border-color: #222222;
+}
+#blue {
+  background: blue;
+  width: 300px;
+  height: 300px;
+  border-radius: 0px 0px 300px 0px;
+  border-width: 10px 20px 20px 10px;
+  border-style: solid;
+  border-color: #222222;
+}
+#console {
+  height: 250px;
+  width: 250px;
+  background-color: lightgray;
+  border: 20px solid #222222;
+  border-radius: 125px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 1;
+  text-align: center;
+}
+#game {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin-top:
+}
+
+#round {
+  height: 60px;
+  width: 60px;
+  border: 5px solid black;
+  border-radius: 50%;
+  background: #222222;
+  display: inline-block;
+  line-height: 50px;
+
+  color: red;
+  font-family: Pathway Gothic One;
+  font-size: 20px;
+}
+
+#start-reset {
+  height: 60px;
+  width: 60px;
+  border: 5px solid #222222;
+  border-radius: 50%;
+  background: green;
+display: inline-block;
+  line-height: 50px;
+  font-family: Pathway Gothic One;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#strict {
+  height: 60px;
+  width: 60px;
+  border: 5px solid #222222;
+  border-radius: 50%;
+  background: yellow;
+display: inline-block;
+  line-height: 50px;
+  font-family: Pathway Gothic One;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-family: Ultra;
+  font-size: 40px;
+  color: #222222;
+}
+
+.highlight {
+  box-shadow: inset 0px 0px 100px black;
+/* -webkit-filter: brightness(250%); */
+}
+
+.game-button, #round, #start-reset, #strict {
+  cursor: pointer;
+}
