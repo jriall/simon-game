@@ -1,44 +1,110 @@
 let sequence = [];
 let clicksInRound = [];
+let currentRound = 1;
+let strict = true;
+let gameRunning = false;
+
 //load an array of length 20 for a new game - random selections of red, blue, yellow and green.
 function setSequence() {
-  let color = "";
-  for (let i=0; i < 20; i++) {
-    color = Math.floor((Math.random() * 4) + 1);
-    switch (color) {
-      case 1:
-        sequence.push("red");
-        break;
-      case 2:
-        sequence.push("blue");
-        break;
-      case 3:
-        sequence.push("yellow");
-        break;
-      case 4:
-        sequence.push("green");
-        break;
+    let color = "";
+    for (let i = 0; i < 7; i++) {
+        //change back to 20 when ready
+        color = Math.floor((Math.random() * 4) + 1);
+        switch (color) {
+            case 1:
+                sequence.push("red");
+                break;
+            case 2:
+                sequence.push("blue");
+                break;
+            case 3:
+                sequence.push("yellow");
+                break;
+            case 4:
+                sequence.push("green");
+                break;
+        }
     }
-  }
 }
 
-setSequence();
+function reset() {
+  gameRunning = false;
+  $("#start-reset").html("Start");
+  currentRound = 1;
+  clicksInRound = [];
+  changeRound();
+}
+
+$("#start-reset").click(function() {
+    if (!gameRunning) {
+      gameRunning = true;
+      sequence = [];
+      setSequence();
+      currentRound = 1;
+      changeRound();
+      $("#start-reset").html("Reset");
+      console.log(sequence);
+    } else if (gameRunning) {
+      reset();
+    }
+});
+
+//strict button - change strict on or off. Only allow functionality if game is not in progress.
+$("#strict").click(function() {
+    if (!gameRunning) {
+        if (!strict) {
+            strict = true;
+            $("#strict").html("On");
+        } else {
+            strict = false;
+            $("#strict").html("Off");
+        }
+    }
+});
+
 console.log(sequence);
 
-function checkIsCorrect(arr) {
-  for (let i=0; i<arr.length; ) {
-    if (arr[i] !== sequence[i]) {
-      console.log('try again');
-      return false;
+function handleWin() {
+    console.log('WINNING!!!');
+    //DO SOME COOL SHIT WHEN SOMEONE WINS
+    reset();
+}
+
+function changeRound() {
+  $("#round").html(currentRound);
+  clicksInRound = [];
+}
+
+function handleWrong() {
+    console.log('wrong');
+    if (strict) {
+        //game reset
+       reset();
+    } else {
+        //restart round
+        currentRound--;
+        changeRound();
     }
-  }
-  console.log('Hooray!!!');
-  return true;
 }
 
 $(".game-button").click(function() {
-  clicksInRound.push(this.id);
-  checkIsCorrect(clicksInRound);
+  if (gameRunning) {
+    clicksInRound.push(this.id);
+    for (let j = 0; j < clicksInRound.length; j++) {
+        if (clicksInRound[j] !== sequence[j]) {
+            handleWrong();
+            break;
+        }
+    }
+    if (clicksInRound.length === currentRound) {
+        //round completed, new round
+        currentRound++;
+        changeRound();
+        if (currentRound === 8) {
+            handleWin();
+        }
+    }
+  }
 });
 
 
@@ -52,19 +118,7 @@ $(".game-button").click(function() {
 // var currentRoundSequence = [];
 // var whereInRound = 0;
 
-// //strict button - change strict on or off. Only allow functionality if game
-// //is not in progress.
-// $("#strict").click(function() {
-//   if (running === false) {
-//     if (strict === false) {
-//       strict = true;
-//       $("#strict").html("On");
-//     } else if (strict === true) {
-//       strict = false;
-//       $("#strict").html("Off");
-//     }
-//   }
-// });
+
 
 // //clear the sequence for a new game
 // function clearSequence() {
@@ -256,4 +310,3 @@ $(".game-button").click(function() {
 //     }
 //   }
 // });
-
