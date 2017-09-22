@@ -1,6 +1,6 @@
 let sequence = [];
 let clicksInRound = [];
-let currentRound = 1;
+let currentRound = 0;
 let strict = true;
 let gameRunning = false;
 
@@ -37,9 +37,9 @@ function playSound(path) {
 function reset() {
     gameRunning = false;
     $("#start-reset").html("Start");
-    currentRound = 1;
+    currentRound = 0;
     clicksInRound = [];
-    $("#round").html(currentRound);
+    $("#round").html("--");
     // changeRound();
 }
 

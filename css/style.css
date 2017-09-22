@@ -80,7 +80,8 @@ body {
     line-height: 50px;
     color: red;
     font-family: Pathway Gothic One;
-    font-size: 12px;
+    font-size: 16px;
+    margin-right: 20px;
 }
 
 #start-reset {
@@ -107,10 +108,22 @@ body {
     font-family: Pathway Gothic One;
     font-weight: bold;
     font-size: 12px;
+    margin-left: 20px;
 }
 
 #controls {
-  padding-top: 50px;
+  padding-top: 10px;
+}
+
+.headers {
+  display: inline-block;
+  padding: 0 19px 0 19px;
+  font-size: 70%;
+}
+
+#control-headers {
+  padding-top: 10px;
+  font-family: Ultra;
 }
 
 h1 {
