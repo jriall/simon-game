@@ -7,7 +7,7 @@ let gameRunning = false;
 //load an array of length 20 for a new game - random selections of red, blue, yellow and green.
 function setSequence() {
     let color = "";
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 2; i++) {
         //change back to 20 when ready
         color = Math.floor((Math.random() * 4) + 1);
         switch (color) {
@@ -74,8 +74,10 @@ console.log(sequence);
 
 function handleWin() {
     playSound("sounds/win.mp3");
-    console.log('WINNING!!!');
-    reset();
+    $("#round").html('W');
+    setTimeout(function() {
+      reset();
+}, 3000);
 }
 
 function changeRound() {
@@ -89,7 +91,7 @@ function handleWrong() {
     console.log('wrong');
     if (strict) {
         //game reset
-        reset();
+      reset();
     } else {
         //restart round
         currentRound--;
@@ -175,10 +177,10 @@ $(".game-button").click(function() {
         if (clicksInRound.length === currentRound) {
             //round completed, new round
             currentRound++;
-            changeRound();
-            if (currentRound === 8) {
-                handleWin();
+            if (currentRound === 3) {
+                return handleWin();
             }
+            changeRound();
         }
     }
 });
