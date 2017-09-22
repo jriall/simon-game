@@ -81,7 +81,7 @@ body {
 
     color: red;
     font-family: Pathway Gothic One;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 #start-reset {
@@ -94,7 +94,7 @@ body {
     line-height: 50px;
     font-family: Pathway Gothic One;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 #strict {
@@ -107,7 +107,7 @@ body {
     line-height: 50px;
     font-family: Pathway Gothic One;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 h1 {
