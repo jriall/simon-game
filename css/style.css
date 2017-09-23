@@ -4,19 +4,19 @@ body {
 
 #red {
     background: red;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-width: 20px 20px 10px 10px;
     border-style: solid;
     border-color: #222222;
-    border-radius: 0px 400px 0px 0px;
+    border-radius: 0px 300px 0px 0px;
 }
 
 #yellow {
     background: #ee0;
-    width: 400px;
-    height: 400px;
-    border-radius: 0px 0px 0px 400px;
+    width: 300px;
+    height: 300px;
+    border-radius: 0px 0px 0px 300px;
     border-width: 10px 10px 20px 20px;
     border-style: solid;
     border-color: #222222;
@@ -24,9 +24,9 @@ body {
 
 #green {
     background: green;
-    width: 400px;
-    height: 400px;
-    border-radius: 400px 0px 0px 0px;
+    width: 300px;
+    height: 300px;
+    border-radius: 300px 0px 0px 0px;
     border-width: 20px 10px 10px 20px;
     border-style: solid;
     border-color: #222222;
@@ -34,9 +34,9 @@ body {
 
 #blue {
     background: blue;
-    width: 400px;
-    height: 400px;
-    border-radius: 0px 0px 400px 0px;
+    width: 300px;
+    height: 300px;
+    border-radius: 0px 0px 300px 0px;
     border-width: 10px 20px 20px 10px;
     border-style: solid;
     border-color: #222222;
@@ -59,15 +59,9 @@ body {
 }
 
 #game {
-    width: 800px;
-    height: 800px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin-top:
+    width: 60px;
+    height: 600px;
+    margin-top: 135px;
 }
 
 #round {
@@ -143,6 +137,50 @@ h1 {
 .game-button,
 #round,
 #start-reset,
-#strict {
+#strict,
+.on-off-button {
     cursor: pointer;
 }
+
+#on-off {
+    margin-top: 20px;
+}
+
+.on-off-label {
+    display: inline-block;
+    font-family: Ultra;
+    vertical-align: middle;
+}
+
+.on-off-button {
+    display: inline-block;
+}
+
+#on-button {
+    background-color: black;
+    height: 20px;
+    width: 20px;
+}
+
+#off-button {
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+}
+
+#on-off-button-group {
+        display: inline-block;
+        background-color: black;
+        border-width: 5px 5px 0 5px;
+        border-style: solid;
+        border-color: black;
+}
+
+
+
+
+
+
+
+
+

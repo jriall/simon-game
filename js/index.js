@@ -3,6 +3,7 @@ let clicksInRound = [];
 let currentRound = 0;
 let strict = true;
 let gameRunning = false;
+let gameSwitchedOn = false;
 
 //load an array of length 20 for a new game - random selections of red, blue, yellow and green.
 function setSequence() {
@@ -43,17 +44,33 @@ function reset() {
     // changeRound();
 }
 
-$("#start-reset").click(function() {
-    if (!gameRunning) {
-        gameRunning = true;
-        sequence = [];
-        setSequence();
-        currentRound = 1;
-        changeRound();
-        $("#start-reset").html("Reset");
-        console.log(sequence);
-    } else if (gameRunning) {
+$(".on-off-button").click(function() {
+    if (this.id == 'on-button' && gameSwitchedOn === false) {
+        gameSwitchedOn = true;
+        $("#on-button").css("background-color", "blue");
+        $("#off-button").css("background-color", "black");
+        //POTENTIALLY CHANGE DISPLAY HERE?
+    } else if (this.id == 'off-button' && gameSwitchedOn === true) {
+        gameSwitchedOn = false;
+        $("#off-button").css("background-color", "blue");
+        $("#on-button").css("background-color", "black");
         reset();
+    }
+});
+
+$("#start-reset").click(function() {
+    if (gameSwitchedOn) {
+        if (!gameRunning) {
+            gameRunning = true;
+            sequence = [];
+            setSequence();
+            currentRound = 1;
+            changeRound();
+            $("#start-reset").html("Reset");
+            console.log(sequence);
+        } else if (gameRunning) {
+            reset();
+        }
     }
 });
 
@@ -76,8 +93,8 @@ function handleWin() {
     playSound("sounds/win.mp3");
     $("#round").html('W');
     setTimeout(function() {
-      reset();
-}, 3000);
+        reset();
+    }, 3000);
 }
 
 function changeRound() {
@@ -91,7 +108,7 @@ function handleWrong() {
     console.log('wrong');
     if (strict) {
         //game reset
-      reset();
+        reset();
     } else {
         //restart round
         currentRound--;
@@ -157,7 +174,7 @@ function displayRoundSequence() {
 }
 
 $(".game-button").click(function() {
-    if (gameRunning) {
+    if (gameRunning && gameSwitchedOn) {
         clicksInRound.push(this.id);
         for (let j = 0; j < clicksInRound.length; j++) {
             if (clicksInRound[j] !== sequence[j]) {
@@ -177,7 +194,7 @@ $(".game-button").click(function() {
         if (clicksInRound.length === currentRound) {
             //round completed, new round
             currentRound++;
-            if (currentRound === 3) {
+            if (currentRound === sequence.length + 1) {
                 return handleWin();
             }
             changeRound();

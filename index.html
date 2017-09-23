@@ -2,53 +2,64 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simon Game</title>
-  <link href='https://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Pathway+Gothic+One' />
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simon Game</title>
+    <link href='https://fonts.googleapis.com/css?family=Ultra' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Pathway+Gothic+One' />
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div class="game-box">
-    <div id="console">
-      <h1>Simon<sup>&reg;</sup></h1>
-      <div id="control-headers">
-        <div id="round-header" class="headers">CURRENT<br>ROUND</div>
-        <div id="start-reset-header" class="headers">START/<br>RESET</div>
-        <div id="strict-header" class="headers">STRICT<br>MODE</div>
-      </div>
-      <div id="controls">
-        <div id="round" class="buttons">--</div>
-        <div id="start-reset" class="buttons">Start</div>
-        <div id="strict" class="buttons">Strict On</div>
-      </div>
+    <div class="game-box">
+        <div id="console">
+            <h1>Simon<sup>&reg;</sup></h1>
+            <div id="control-headers">
+                <div id="round-header" class="headers">CURRENT
+                    <br>ROUND</div>
+                <div id="start-reset-header" class="headers">START/
+                    <br>RESET</div>
+                <div id="strict-header" class="headers">STRICT
+                    <br>MODE</div>
+            </div>
+            <div id="controls">
+                <div id="round" class="buttons">--</div>
+                <div id="start-reset" class="buttons">Start</div>
+                <div id="strict" class="buttons">Strict On</div>
+            </div>
+            <div id="on-off">
+                <p class="on-off-label" id="off-label">OFF</p>
+                <div id="on-off-button-group">
+                    <div class="on-off-button" id="off-button"></div>
+                    <div class="on-off-button" id="on-button"></div>
+                </div>
+                <p class="on-off-label" id="on-label">ON</p>
+            </div>
+        </div>
+        <table style="margin-left: auto; margin-right: auto" id="game">
+            <tr>
+                <td>
+                    <div class="game-button" id="green"></div>
+                </td>
+                <td>
+                    <div class="game-button" id="red"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="game-button" id="yellow"></div>
+                </td>
+                <td>
+                    <div class="game-button" id="blue"></div>
+                </td>
+            </tr>
+        </table>
     </div>
-    <table style="margin-left: auto; margin-right: auto" id="game">
-      <tr>
-        <td>
-          <div class="game-button" id="green"></div>
-        </td>
-        <td>
-          <div class="game-button" id="red"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="game-button" id="yellow"></div>
-        </td>
-        <td>
-          <div class="game-button" id="blue"></div>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
-  <script src="js/index.js"></script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
