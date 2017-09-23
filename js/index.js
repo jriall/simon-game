@@ -5,13 +5,15 @@ let strict = true;
 let gameRunning = false;
 let gameSwitchedOn = false;
 let sequenceRunning = false;
+let tempo = 1000;
+let gameLength = 20;
 
 //load an array of length 20 for a new game - random selections of red, blue, yellow and green.
 function setSequence() {
     let color = "";
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < gameLength; i++) {
         //change back to 20 when ready
-        color = Math.floor((Math.random() * 4) + 1);
+        color = Math.floor((Math.random() * 2) + 1);
         switch (color) {
             case 1:
                 sequence.push("red");
@@ -38,10 +40,10 @@ function playSound(path) {
 
 function reset() {
     gameRunning = false;
-    $("#start-reset").html("Start");
     currentRound = 0;
     clicksInRound = [];
     $("#round").html("--");
+    tempo = 1000;
     // changeRound();
 }
 
@@ -67,7 +69,6 @@ $("#start-reset").click(function() {
             setSequence();
             currentRound = 1;
             changeRound();
-            $("#start-reset").html("Reset");
             console.log(sequence);
         } else if (gameRunning) {
             reset();
@@ -88,11 +89,10 @@ $("#strict").click(function() {
     }
 });
 
-console.log(sequence);
-
 function handleWin() {
     playSound("sounds/win.mp3");
     $("#round").html('W');
+    winSequence();
     setTimeout(function() {
         reset();
     }, 3000);
@@ -101,16 +101,25 @@ function handleWin() {
 function changeRound() {
     $("#round").html(currentRound);
     clicksInRound = [];
+    if (currentRound === 7) {
+        tempo = 750;
+    } if (currentRound === 14) {
+        tempo = 500;
+    }
     displayRoundSequence();
+    gameRunning = true;
 }
 
 function handleWrong() {
     playSound("sounds/mistake.mp3");
-    console.log('wrong');
+    $(".game-button").addClass("highlight");
+    setTimeout(function() {
+        $(".game-button").removeClass("highlight");
+    }, 350);
     if (strict) {
         //game reset
         reset();
-    } else {
+    } else if (!strict) {
         //restart round
         currentRound--;
         changeRound();
@@ -151,30 +160,35 @@ function playBlue() {
 
 function displayRoundSequence() {
     sequenceRunning = true;
-    console.log(sequenceRunning);
     setTimeout(function() {
-            sequenceRunning = false;
-            console.log(sequenceRunning);
-        }, (1000 * currentRound));
+        sequenceRunning = false;
+    }, (1000 * currentRound));
     for (let k = 0; k < currentRound; k++) {
         if (sequence[k] === "red") {
             setTimeout(function() {
                 playRed();
-            }, (1000 * k + 1000));
+            }, (tempo * k + 1500));
         } else if (sequence[k] === "blue") {
             setTimeout(function() {
                 playBlue();
-            }, (1000 * k + 1000));
+            }, (tempo * k + 1500));
         } else if (sequence[k] === "yellow") {
             setTimeout(function() {
                 playYellow();
-            }, (1000 * k + 1000));
+            }, (tempo * k + 1500));
         } else if (sequence[k] === "green") {
             setTimeout(function() {
                 playGreen();
-            }, (1000 * k + 1000));
+            }, (tempo * k + 1500));
         }
     }
+}
+
+function winSequence() {
+    $(".game-button").addClass("highlight");
+    setTimeout(function() {
+        $(".game-button").removeClass("highlight");
+    }, 2000);
 }
 
 $(".game-button").click(function() {
