@@ -4,11 +4,12 @@ let currentRound = 0;
 let strict = true;
 let gameRunning = false;
 let gameSwitchedOn = false;
+let sequenceRunning = false;
 
 //load an array of length 20 for a new game - random selections of red, blue, yellow and green.
 function setSequence() {
     let color = "";
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
         //change back to 20 when ready
         color = Math.floor((Math.random() * 4) + 1);
         switch (color) {
@@ -149,10 +150,13 @@ function playBlue() {
 }
 
 function displayRoundSequence() {
-    for (let k = 0; k < currentRound; k++) {
-        setTimeout(function() {
-            sequencePlaying = false;
+    sequenceRunning = true;
+    console.log(sequenceRunning);
+    setTimeout(function() {
+            sequenceRunning = false;
+            console.log(sequenceRunning);
         }, (1000 * currentRound));
+    for (let k = 0; k < currentRound; k++) {
         if (sequence[k] === "red") {
             setTimeout(function() {
                 playRed();
@@ -174,7 +178,7 @@ function displayRoundSequence() {
 }
 
 $(".game-button").click(function() {
-    if (gameRunning && gameSwitchedOn) {
+    if (gameRunning && gameSwitchedOn && !sequenceRunning) {
         clicksInRound.push(this.id);
         for (let j = 0; j < clicksInRound.length; j++) {
             if (clicksInRound[j] !== sequence[j]) {
