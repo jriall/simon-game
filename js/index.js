@@ -79,10 +79,10 @@ $("#strict").click(function() {
     if (!gameRunning) {
         if (!strict) {
             strict = true;
-            $("#strict").html("Strict On");
+            $("#strict-light").css("background-color", "red");
         } else {
             strict = false;
-            $("#strict").html("Strict Off");
+            $("#strict-light").css("background-color", "black");
         }
     }
 });
