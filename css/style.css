@@ -1,5 +1,8 @@
 body {
     background: url(http://res.cloudinary.com/jamesriall/image/upload/c_scale,w_1920/v1468354954/Simon_Background_wq9a2a.jpg) no-repeat center center fixed;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 #red {
@@ -194,6 +197,11 @@ h1 {
         border-color: black;
 }
 
+#instructions {
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 20px;
+}
 
 
 

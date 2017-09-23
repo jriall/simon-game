@@ -13,7 +13,7 @@ function setSequence() {
     let color = "";
     for (let i = 0; i < gameLength; i++) {
         //change back to 20 when ready
-        color = Math.floor((Math.random() * 2) + 1);
+        color = Math.floor((Math.random() * 4) + 1);
         switch (color) {
             case 1:
                 sequence.push("red");
@@ -101,10 +101,8 @@ function handleWin() {
 function changeRound() {
     $("#round").html(currentRound);
     clicksInRound = [];
-    if (currentRound === 7) {
+    if (currentRound === Math.floor(gameLength/2)) {
         tempo = 750;
-    } if (currentRound === 14) {
-        tempo = 500;
     }
     displayRoundSequence();
     gameRunning = true;
@@ -188,10 +186,12 @@ function winSequence() {
     $(".game-button").addClass("highlight");
     setTimeout(function() {
         $(".game-button").removeClass("highlight");
-    }, 2000);
+    }, 350);
 }
 
 $(".game-button").click(function() {
+    console.log("Gamelength" + gameLength);
+    console.log("Current Round" + currentRound);
     if (gameRunning && gameSwitchedOn && !sequenceRunning) {
         clicksInRound.push(this.id);
         for (let j = 0; j < clicksInRound.length; j++) {
@@ -212,10 +212,15 @@ $(".game-button").click(function() {
         if (clicksInRound.length === currentRound) {
             //round completed, new round
             currentRound++;
-            if (currentRound === sequence.length + 1) {
+            if (currentRound === gameLength+1) {
                 return handleWin();
             }
             changeRound();
         }
     }
+});
+
+$("#level-change").submit(function(event) {
+    event.preventDefault();
+    gameLength = parseInt(this.elements[0].value);
 });
