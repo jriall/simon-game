@@ -8,7 +8,7 @@ let sequenceRunning = false;
 let tempo = 1000;
 let gameLength = 20;
 
-//load an array of length 20 for a new game - random selections of red, blue, yellow and green.
+//load an array for a new game - random selections of red, blue, yellow and green.
 function setSequence() {
     let color = "";
     for (let i = 0; i < gameLength; i++) {
@@ -38,21 +38,21 @@ function playSound(path) {
     audioElement.play();
 }
 
+//reset game
 function reset() {
     gameRunning = false;
     currentRound = 0;
     clicksInRound = [];
     $("#round").html("--");
     tempo = 1000;
-    // changeRound();
 }
 
+//handle turning the game on and off
 $(".on-off-button").click(function() {
     if (this.id == 'on-button' && gameSwitchedOn === false) {
         gameSwitchedOn = true;
         $("#on-button").css("background-color", "blue");
         $("#off-button").css("background-color", "black");
-        //POTENTIALLY CHANGE DISPLAY HERE?
     } else if (this.id == 'off-button' && gameSwitchedOn === true) {
         gameSwitchedOn = false;
         $("#off-button").css("background-color", "blue");
@@ -61,6 +61,7 @@ $(".on-off-button").click(function() {
     }
 });
 
+//handle clicking the start/reset button
 $("#start-reset").click(function() {
     if (gameSwitchedOn) {
         if (!gameRunning) {
@@ -89,15 +90,20 @@ $("#strict").click(function() {
     }
 });
 
+//handle player winning the game
 function handleWin() {
     playSound("sounds/win.mp3");
     $("#round").html('W');
-    winSequence();
+    $(".game-button").addClass("highlight");
+    setTimeout(function() {
+        $(".game-button").removeClass("highlight");
+    }, 350);
     setTimeout(function() {
         reset();
     }, 3000);
 }
 
+//handle player completing a round
 function changeRound() {
     $("#round").html(currentRound);
     clicksInRound = [];
@@ -108,6 +114,7 @@ function changeRound() {
     gameRunning = true;
 }
 
+//handle player making a mistake - restart round or restart game (if strict mode is on)
 function handleWrong() {
     playSound("sounds/mistake.mp3");
     $(".game-button").addClass("highlight");
@@ -124,6 +131,7 @@ function handleWrong() {
     }
 }
 
+//highlight and play sound for color buttons
 function playYellow() {
     $("#yellow").addClass("highlight");
     playSound("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
@@ -156,6 +164,7 @@ function playBlue() {
     }, 350);
 }
 
+//generate the current round sequence and display to the player
 function displayRoundSequence() {
     sequenceRunning = true;
     setTimeout(function() {
@@ -182,13 +191,7 @@ function displayRoundSequence() {
     }
 }
 
-function winSequence() {
-    $(".game-button").addClass("highlight");
-    setTimeout(function() {
-        $(".game-button").removeClass("highlight");
-    }, 350);
-}
-
+//handle player clicking a color button, checking if correct or wrong and where player is in the round.
 $(".game-button").click(function() {
     console.log("Gamelength" + gameLength);
     console.log("Current Round" + currentRound);
@@ -220,6 +223,7 @@ $(".game-button").click(function() {
     }
 });
 
+//handle the change level input
 $("#level-change").submit(function(event) {
     event.preventDefault();
     gameLength = parseInt(this.elements[0].value);
