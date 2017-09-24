@@ -107,7 +107,7 @@ function handleWin() {
 function changeRound() {
     $("#round").html(currentRound);
     clicksInRound = [];
-    if (currentRound === Math.floor(gameLength/2)) {
+    if (currentRound === Math.floor(gameLength / 2)) {
         tempo = 750;
     }
     displayRoundSequence();
@@ -132,61 +132,76 @@ function handleWrong() {
 }
 
 //highlight and play sound for color buttons
-function playYellow() {
+let playYellow = function() {
     $("#yellow").addClass("highlight");
     playSound("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
     setTimeout(function() {
         $("#yellow").removeClass("highlight");
     }, 350);
-}
+};
 
-function playRed() {
+let playRed = function() {
     $("#red").addClass("highlight");
     playSound("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
     setTimeout(function() {
         $("#red").removeClass("highlight");
     }, 350);
-}
+};
 
-function playGreen() {
+let playGreen = function() {
     $("#green").addClass("highlight");
     playSound("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
     setTimeout(function() {
         $("#green").removeClass("highlight");
     }, 350);
-}
+};
 
-function playBlue() {
+let playBlue = function() {
     $("#blue").addClass("highlight");
     playSound("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
     setTimeout(function() {
         $("#blue").removeClass("highlight");
     }, 350);
-}
+};
 
 //generate the current round sequence and display to the player
-function displayRoundSequence() {
+let displayRoundSequence = function() {
     sequenceRunning = true;
-    setTimeout(function() {
+    let unfreeze = setTimeout(function() {
         sequenceRunning = false;
     }, (1000 * currentRound));
+    $(".on-off-button, #start-reset").click(function() {
+        clearTimeout(unfreeze);
+    });
     for (let k = 0; k < currentRound; k++) {
         if (sequence[k] === "red") {
-            setTimeout(function() {
+            let testRed = setTimeout(function() {
                 playRed();
             }, (tempo * k + 1500));
+            $(".on-off-button, #start-reset").click(function() {
+                clearTimeout(testRed);
+            });
         } else if (sequence[k] === "blue") {
-            setTimeout(function() {
+            let testBlue = setTimeout(function() {
                 playBlue();
             }, (tempo * k + 1500));
+            $(".on-off-button, #start-reset").click(function() {
+                clearTimeout(testBlue);
+            });
         } else if (sequence[k] === "yellow") {
-            setTimeout(function() {
+            let testYellow = setTimeout(function() {
                 playYellow();
             }, (tempo * k + 1500));
+            $(".on-off-button, #start-reset").click(function() {
+                clearTimeout(testYellow);
+            });
         } else if (sequence[k] === "green") {
-            setTimeout(function() {
+            let testGreen = setTimeout(function() {
                 playGreen();
             }, (tempo * k + 1500));
+            $(".on-off-button, #start-reset").click(function() {
+                clearTimeout(testGreen);
+            });
         }
     }
 }
@@ -215,7 +230,7 @@ $(".game-button").click(function() {
         if (clicksInRound.length === currentRound) {
             //round completed, new round
             currentRound++;
-            if (currentRound === gameLength+1) {
+            if (currentRound === gameLength + 1) {
                 return handleWin();
             }
             changeRound();
