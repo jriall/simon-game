@@ -204,7 +204,7 @@ let displayRoundSequence = function() {
             });
         }
     }
-}
+};
 
 //handle player clicking a color button, checking if correct or wrong and where player is in the round.
 $(".game-button").click(function() {
@@ -243,3 +243,18 @@ $("#level-change").submit(function(event) {
     event.preventDefault();
     gameLength = parseInt(this.elements[0].value);
 });
+
+////////////////////////
+//Rewrite of playColor functions.
+
+let playColor = function(color) {
+    $("$#" + color).addClass('highlight');
+    playSound("https://s3.amazonaws.com/freecodecamp/simonSound" + color + ".mp3");//SAVE FILE NAMES AND SAVE BY COLOR NAME.
+    setTimeout(function() {
+        $("$#" + color).removeClass("highlight");
+    }, 350);
+};
+
+//add into the game button click function with this.id passed as a function and into display round sequence with sequence[k] as the parameter.
+
+///////////////////////
