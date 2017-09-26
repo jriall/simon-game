@@ -70,7 +70,6 @@ $("#start-reset").click(function() {
             setSequence();
             currentRound = 1;
             changeRound();
-            console.log(sequence);
         } else if (gameRunning) {
             reset();
         }
@@ -131,36 +130,12 @@ function handleWrong() {
     }
 }
 
-//highlight and play sound for color buttons
-let playYellow = function() {
-    $("#yellow").addClass("highlight");
-    playSound("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+//highlight a color, play sound, and remove highlight for when player clicks or sequence is displaying.
+let playColor = function(color) {
+    $("#" + color).addClass('highlight');
+    playSound("sounds/" + color + "-tone.mp3");
     setTimeout(function() {
-        $("#yellow").removeClass("highlight");
-    }, 350);
-};
-
-let playRed = function() {
-    $("#red").addClass("highlight");
-    playSound("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
-    setTimeout(function() {
-        $("#red").removeClass("highlight");
-    }, 350);
-};
-
-let playGreen = function() {
-    $("#green").addClass("highlight");
-    playSound("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
-    setTimeout(function() {
-        $("#green").removeClass("highlight");
-    }, 350);
-};
-
-let playBlue = function() {
-    $("#blue").addClass("highlight");
-    playSound("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
-    setTimeout(function() {
-        $("#blue").removeClass("highlight");
+        $("#" + color).removeClass("highlight");
     }, 350);
 };
 
@@ -174,42 +149,17 @@ let displayRoundSequence = function() {
         clearTimeout(unfreeze);
     });
     for (let k = 0; k < currentRound; k++) {
-        if (sequence[k] === "red") {
-            let testRed = setTimeout(function() {
-                playRed();
+            let testColor = setTimeout(function() {
+                playColor(sequence[k]);
             }, (tempo * k + 1500));
             $(".on-off-button, #start-reset").click(function() {
-                clearTimeout(testRed);
+                clearTimeout(testColor);
             });
-        } else if (sequence[k] === "blue") {
-            let testBlue = setTimeout(function() {
-                playBlue();
-            }, (tempo * k + 1500));
-            $(".on-off-button, #start-reset").click(function() {
-                clearTimeout(testBlue);
-            });
-        } else if (sequence[k] === "yellow") {
-            let testYellow = setTimeout(function() {
-                playYellow();
-            }, (tempo * k + 1500));
-            $(".on-off-button, #start-reset").click(function() {
-                clearTimeout(testYellow);
-            });
-        } else if (sequence[k] === "green") {
-            let testGreen = setTimeout(function() {
-                playGreen();
-            }, (tempo * k + 1500));
-            $(".on-off-button, #start-reset").click(function() {
-                clearTimeout(testGreen);
-            });
-        }
     }
 };
 
 //handle player clicking a color button, checking if correct or wrong and where player is in the round.
 $(".game-button").click(function() {
-    console.log("Gamelength" + gameLength);
-    console.log("Current Round" + currentRound);
     if (gameRunning && gameSwitchedOn && !sequenceRunning) {
         clicksInRound.push(this.id);
         for (let j = 0; j < clicksInRound.length; j++) {
@@ -217,15 +167,7 @@ $(".game-button").click(function() {
                 handleWrong();
                 break;
             }
-            if (this.id === 'red') {
-                playRed();
-            } else if (this.id === 'blue') {
-                playBlue();
-            } else if (this.id === 'green') {
-                playGreen();
-            } else if (this.id === 'yellow') {
-                playYellow();
-            }
+            playColor(this.id);
         }
         if (clicksInRound.length === currentRound) {
             //round completed, new round
@@ -243,18 +185,3 @@ $("#level-change").submit(function(event) {
     event.preventDefault();
     gameLength = parseInt(this.elements[0].value);
 });
-
-////////////////////////
-//Rewrite of playColor functions.
-
-let playColor = function(color) {
-    $("$#" + color).addClass('highlight');
-    playSound("https://s3.amazonaws.com/freecodecamp/simonSound" + color + ".mp3");//SAVE FILE NAMES AND SAVE BY COLOR NAME.
-    setTimeout(function() {
-        $("$#" + color).removeClass("highlight");
-    }, 350);
-};
-
-//add into the game button click function with this.id passed as a function and into display round sequence with sequence[k] as the parameter.
-
-///////////////////////
