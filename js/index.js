@@ -13,7 +13,7 @@ function setSequence() {
     let color = "";
     for (let i = 0; i < gameLength; i++) {
         //change back to 20 when ready
-        color = Math.floor((Math.random() * 4) + 1);
+        color = Math.floor(Math.random() * 4 + 1);
         switch (color) {
             case 1:
                 sequence.push("red");
@@ -33,8 +33,8 @@ function setSequence() {
 
 //function to load sound effects
 function playSound(path) {
-    let audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', path);
+    let audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", path);
     audioElement.play();
 }
 
@@ -49,11 +49,11 @@ function reset() {
 
 //handle turning the game on and off
 $(".on-off-button").click(function() {
-    if (this.id == 'on-button' && gameSwitchedOn === false) {
+    if (this.id == "on-button" && gameSwitchedOn === false) {
         gameSwitchedOn = true;
         $("#on-button").css("background-color", "blue");
         $("#off-button").css("background-color", "black");
-    } else if (this.id == 'off-button' && gameSwitchedOn === true) {
+    } else if (this.id == "off-button" && gameSwitchedOn === true) {
         gameSwitchedOn = false;
         $("#off-button").css("background-color", "blue");
         $("#on-button").css("background-color", "black");
@@ -92,7 +92,7 @@ $("#strict").click(function() {
 //handle player winning the game
 function handleWin() {
     playSound("sounds/win.mp3");
-    $("#round").html('W');
+    $("#round").html("W");
     $(".game-button").addClass("highlight");
     setTimeout(function() {
         $(".game-button").removeClass("highlight");
@@ -132,7 +132,7 @@ function handleWrong() {
 
 //highlight a color, play sound, and remove highlight for when player clicks or sequence is displaying.
 let playColor = function(color) {
-    $("#" + color).addClass('highlight');
+    $("#" + color).addClass("highlight");
     playSound("sounds/" + color + "-tone.mp3");
     setTimeout(function() {
         $("#" + color).removeClass("highlight");
@@ -144,17 +144,17 @@ let displayRoundSequence = function() {
     sequenceRunning = true;
     let unfreeze = setTimeout(function() {
         sequenceRunning = false;
-    }, (1000 * currentRound));
+    }, 1000 * currentRound);
     $(".on-off-button, #start-reset").click(function() {
         clearTimeout(unfreeze);
     });
     for (let k = 0; k < currentRound; k++) {
-            let testColor = setTimeout(function() {
-                playColor(sequence[k]);
-            }, (tempo * k + 1500));
-            $(".on-off-button, #start-reset").click(function() {
-                clearTimeout(testColor);
-            });
+        let testColor = setTimeout(function() {
+            playColor(sequence[k]);
+        }, tempo * k + 1500);
+        $(".on-off-button, #start-reset").click(function() {
+            clearTimeout(testColor);
+        });
     }
 };
 
