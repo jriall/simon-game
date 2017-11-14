@@ -1,145 +1,145 @@
 body {
-    background: url(http://res.cloudinary.com/jamesriall/image/upload/c_scale,w_1920/v1468354954/Simon_Background_wq9a2a.jpg) no-repeat center center fixed;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  background: url("http://res.cloudinary.com/jamesriall/image/upload/c_scale,w_1920/v1468354954/Simon_Background_wq9a2a.jpg") no-repeat center center fixed;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .game-button {
-    width: 300px;
-    height: 300px;
-    border-color: #222222;
-    border-style: solid;
+  width: 300px;
+  height: 300px;
+  border-color: #222222;
+  border-style: solid;
 }
 
 #red {
-    background: red;
-    border-width: 20px 20px 10px 10px;
-    border-radius: 0px 300px 0px 0px;
+  background: red;
+  border-width: 20px 20px 10px 10px;
+  border-radius: 0px 300px 0px 0px;
 }
 
 #yellow {
-    background: #ee0;
-    border-radius: 0px 0px 0px 300px;
-    border-width: 10px 10px 20px 20px;
+  background: #ee0;
+  border-radius: 0px 0px 0px 300px;
+  border-width: 10px 10px 20px 20px;
 }
 
 #green {
-    background: green;
-    border-radius: 300px 0px 0px 0px;
-    border-width: 20px 10px 10px 20px;
+  background: green;
+  border-radius: 300px 0px 0px 0px;
+  border-width: 20px 10px 10px 20px;
 }
 
 #blue {
-    background: blue;
-    border-radius: 0px 0px 300px 0px;
+  background: blue;
+  border-radius: 0px 0px 300px 0px;
 }
 
 #console {
-    height: 350px;
-    width: 350px;
-    background-color: lightgray;
-    border: 20px solid #222222;
-    border-radius: 175px;
-    margin: auto;
-    position: absolute;
-    margin-top: 125px;
-    right: 0;
-    left: 0;
-    text-align: center;
+  height: 350px;
+  width: 350px;
+  background-color: lightgray;
+  border: 20px solid #222222;
+  border-radius: 175px;
+  margin: auto;
+  position: absolute;
+  margin-top: 125px;
+  right: 0;
+  left: 0;
+  text-align: center;
 }
 
 #game {
-    height: 600px;
-    margin-top: 135px;
+  height: 600px;
+  margin-top: 135px;
 }
 
 #round {
-    height: 60px;
-    width: 60px;
-    border: 5px solid black;
-    border-radius: 20%;
-    background: #222222;
-    display: inline-block;
-    line-height: 50px;
-    color: red;
-    font-family: Pathway Gothic One;
-    font-size: 30px;
-    margin-right: 20px;
+  height: 60px;
+  width: 60px;
+  border: 5px solid black;
+  border-radius: 20%;
+  background: #222222;
+  display: inline-block;
+  line-height: 50px;
+  color: red;
+  font-family: Pathway Gothic One;
+  font-size: 30px;
+  margin-right: 20px;
 }
 
 #start-reset {
-    height: 60px;
-    width: 60px;
-    border: 5px solid #222222;
-    border-radius: 50%;
-    background: red;
-    display: inline-block;
-    line-height: 60px;
-    font-family: Pathway Gothic One;
-    font-weight: bold;
-    color: red;
+  height: 60px;
+  width: 60px;
+  border: 5px solid #222222;
+  border-radius: 50%;
+  background: red;
+  display: inline-block;
+  line-height: 60px;
+  font-family: Pathway Gothic One;
+  font-weight: bold;
+  color: red;
 }
 
 #start-reset:active {
-    box-shadow: 0 2px #666;
-    transform: translateY(2px);
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
 
 #strict {
-    height: 60px;
-    width: 60px;
-    border: 5px solid #222222;
-    border-radius: 50%;
-    background: yellow;
-    display: inline-block;
-    line-height: 60px;
-    font-family: Pathway Gothic One;
-    margin-left: 10px;
-    color: yellow;
+  height: 60px;
+  width: 60px;
+  border: 5px solid #222222;
+  border-radius: 50%;
+  background: yellow;
+  display: inline-block;
+  line-height: 60px;
+  font-family: Pathway Gothic One;
+  margin-left: 10px;
+  color: yellow;
 }
 
 #strict:active {
-    box-shadow: 0 2px #666;
-    transform: translateY(2px);
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
 
 #strict-light {
-    height: 10px;
-    width: 10px;
-    background-color: red;
-    margin-left: 230px;
-    border-radius: 50%;
-    border: 2px solid black;
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  margin-left: 230px;
+  border-radius: 50%;
+  border: 2px solid black;
 }
 
 #controls {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .headers {
-    display: inline-block;
-    padding: 0 15px 0 10px;
-    font-size: 70%;
+  display: inline-block;
+  padding: 0 15px 0 10px;
+  font-size: 70%;
 }
 
 #control-headers {
-    padding-top: 10px;
-    font-family: Ultra;
+  padding-top: 10px;
+  font-family: Ultra;
 }
 
 h1 {
-    margin-top: 50px;
-    margin-bottom: 10px;
-    font-family: Ultra;
-    font-size: 50px;
-    color: #222222;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-family: Ultra;
+  font-size: 30px;
+  color: #222222;
 }
 
 .highlight {
-    /*  background-color: purple;*/
-    box-shadow: inset 0px 0px 100px black;
-    /* -webkit-filter: brightness(250%); */
+  /*  background-color: purple;*/
+  box-shadow: inset 0px 0px 100px black;
+  /* -webkit-filter: brightness(250%); */
 }
 
 .game-button,
@@ -147,110 +147,107 @@ h1 {
 #start-reset,
 #strict,
 .on-off-button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #on-off {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .on-off-label {
-    display: inline-block;
-    font-family: Ultra;
-    vertical-align: middle;
+  display: inline-block;
+  font-family: Ultra;
+  vertical-align: middle;
 }
 
 .on-off-button {
-    display: inline-block;
+  display: inline-block;
 }
 
 #on-button {
-    background-color: black;
-    height: 20px;
-    width: 20px;
+  background-color: black;
+  height: 20px;
+  width: 20px;
 }
 
 #off-button {
-    background-color: blue;
-    height: 20px;
-    width: 20px;
+  background-color: blue;
+  height: 20px;
+  width: 20px;
 }
 
 #on-off-button-group {
-    display: inline-block;
-    background-color: black;
-    border-width: 5px 5px 0 5px;
-    border-style: solid;
-    border-color: black;
+  display: inline-block;
+  background-color: black;
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: black;
 }
 
 #instructions {
-    font-weight: bold;
-    margin: 0 auto;
-    margin-top: 20px;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 @media (max-width: 600px) {
-    .game-button {
-        width: 200px;
-        height: 200px;
-    }
-    #red {
-        border-width: 10px 10px 5px 5px;
-        border-radius: 0px 200px 0px 0px;
-    }
-    #yellow {
-        border-radius: 0px 0px 0px 200px;
-        border-width: 5px 5px 10px 10px;
-    }
-    #green {
-        border-radius: 200px 0px 0px 0px;
-        border-width: 10px 5px 5px 10px;
-    }
-    #blue {
-        border-radius: 0px 0px 200px 0px;
-        border-width: 5px 10px 10px 5px;
-    }
-    #game {
-        height: 300px;
-        margin-top: 135px;
-    }
-    #console {
-        height: 275px;
-        width: 275px;
-        background-color: lightgray;
-        border: 10px solid #222222;
-        border-radius: 175px;
-        margin: auto;
-        position: absolute;
-        margin-top: 60px;
-        left: 0;
-        right: 0;
-    }
-    h1 {
-        font-size: 30px;
-    }
-    .headers {
-        display: inline-block;
-        padding: 0 15px 0 10px;
-        font-size: 60%;
-    }
-    #round,
-    #start-reset,
-    #strict {
-        height: 45px;
-        width: 45px;
-    }
-    #strict-light {
-        margin-left: 187px;
-    }
-    #on-off {
-        margin-top: 10px;
-    }
-    .on-off-label {
-        font-size: 70%;
-    }
-    .headers {
-        padding: 0 9px 0 9px;
-    }
+  .game-button {
+    width: 200px;
+    height: 200px;
+  }
+  #red {
+    border-width: 10px 10px 5px 5px;
+    border-radius: 0px 200px 0px 0px;
+  }
+  #yellow {
+    border-radius: 0px 0px 0px 200px;
+    border-width: 5px 5px 10px 10px;
+  }
+  #green {
+    border-radius: 200px 0px 0px 0px;
+    border-width: 10px 5px 5px 10px;
+  }
+  #blue {
+    border-radius: 0px 0px 200px 0px;
+    border-width: 5px 10px 10px 5px;
+  }
+  #game {
+    height: 300px;
+    margin-top: 135px;
+  }
+  #console {
+    height: 275px;
+    width: 275px;
+    background-color: lightgray;
+    border: 10px solid #222222;
+    border-radius: 175px;
+    margin: auto;
+    position: absolute;
+    margin-top: 60px;
+    left: 0;
+    right: 0;
+  }
+  .headers {
+    display: inline-block;
+    padding: 0 15px 0 10px;
+    font-size: 60%;
+  }
+  #round,
+  #start-reset,
+  #strict {
+    height: 45px;
+    width: 45px;
+  }
+  #strict-light {
+    margin-left: 187px;
+  }
+  #on-off {
+    margin-top: 10px;
+  }
+  .on-off-label {
+    font-size: 70%;
+  }
+  .headers {
+    padding: 0 9px 0 9px;
+  }
 }
