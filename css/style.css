@@ -138,9 +138,7 @@ h1 {
 }
 
 .highlight {
-  /*  background-color: purple;*/
   box-shadow: inset 0px 0px 100px black;
-  /* -webkit-filter: brightness(250%); */
 }
 
 .game-button,
@@ -191,10 +189,14 @@ h1 {
   margin-top: 20px;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
+  h1 {
+    margin-top: 30px;
+    margin-bottom: -20px;
+  }
   .game-button {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
   }
   #red {
     border-width: 10px 10px 5px 5px;
@@ -217,8 +219,8 @@ h1 {
     margin-top: 135px;
   }
   #console {
-    height: 275px;
-    width: 275px;
+    height: 200px;
+    width: 200px;
     background-color: lightgray;
     border: 10px solid #222222;
     border-radius: 175px;
@@ -230,25 +232,35 @@ h1 {
   }
   .headers {
     display: inline-block;
-    padding: 0 15px 0 10px;
+    padding-left: 20px !important;
     font-size: 60%;
   }
   #round,
   #start-reset,
   #strict {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
   }
   #strict-light {
-    margin-left: 187px;
+    margin-left: 146px;
+    margin-top: 5px;
   }
   #on-off {
-    margin-top: 10px;
+    margin-top: 0px;
+  }
+  #round {
+  font-size: 20px;
+  padding-bottom: 20px !important;
   }
   .on-off-label {
     font-size: 70%;
   }
+  #control-headers {
+    padding-top: 0;
+    padding-right: 5px;
+  }
   .headers {
     padding: 0 9px 0 9px;
+    font-size: 5px;
   }
 }
